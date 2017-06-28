@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <title>Lista de compras</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="js/app.js"></script>
+    </head>
+    <body ng-app="myApp" ng-controller="myController">
+        <div class="container">
+            <hr>
+            <button type="button" class="btn btn-info btn-lg pull-right"data-toggle="modal" data-target="#myModalNew"> Add New</button>
+            <h2>All Users<h2>
+            <span class="clearfix"></span>
+            <hr>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="user in users">
+                        <td>{{$index+1}}.</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.fullname}}</td>
+                        <td>{{user.email}}</td>
+                        <td>
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalEdit">Edit</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-Danger" data-toggle="modal" data-target="#myModalDelete">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table> 
+            <!-- Modal -->
+            <div class="modal fade" id="myModalEdit" role="dialog">
+                <div class="modal-dialog">
+                
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" for="email">Username:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="username" placeholder="Username">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" for="email">Email:</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" for="email">Full Name</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="username" placeholder="Username">
+                                    </div>
+                                </div>
+                                <div class="form-group"> 
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                         <button type="submit" class="btn btn-default">Save</button>
+                                    </div>
+                                </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                
+                </div>
+            </div>   
+            <!-- Modal -->
+            <div class="modal fade" id="myModalNew" role="dialog">
+                <div class="modal-dialog">
+                
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">New Registration</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" for="email">Username:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="username" placeholder="Username">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" for="email">Email:</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" for="email">Full Name</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="username" placeholder="Username">
+                                    </div>
+                                </div>
+                                <div class="form-group"> 
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                         <button type="submit" class="btn btn-default">Save</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>    
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+              <!-- Modal -->
+            <div class="modal fade" id="myModalDelete" role="dialog">
+                <div class="modal-dialog">
+                
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Are you sure?</h4>
+                        </div>
+                        <div class="modal-body">
+                            <strong style="color: red;">
+                                  You are going to delete ...
+                            </strong>
+                        </div>   
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Yes</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+
+           
+    
+        </div>
+    </body>
+</html>
